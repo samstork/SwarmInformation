@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://duig2w80t2k7q"]
+
+[ext_resource type="Script" uid="uid://hag1ivct324" path="res://goal_agent.gd" id="1_c07t7"]
+[ext_resource type="Script" uid="uid://iyrnbki3qk2a" path="res://vision.gd" id="2_k8nqx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_frv7v"]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ukipd"]
+radius = 139.01
+
+[node name="GoalAgent" type="CharacterBody2D"]
+scale = Vector2(1.975, 1.975)
+collision_layer = 2
+script = ExtResource("1_c07t7")
+
+[node name="Sprite" type="Polygon2D" parent="."]
+rotation = 1.5707964
+scale = Vector2(0.45799488, 0.5070003)
+color = Color(0, 0.78431374, 0, 1)
+offset = Vector2(0, 6)
+polygon = PackedVector2Array(-2.8632232e-07, -11.917156, -6.550291, -5.9999995, 2.8632232e-07, -0.08284426, 6.550291, -6.0000005)
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+scale = Vector2(0.45799488, 0.45799488)
+shape = SubResource("CircleShape2D_frv7v")
+
+[node name="Vision" type="Node2D" parent="."]
+rotation = 1.5707964
+script = ExtResource("2_k8nqx")
+
+[node name="Detection" type="Area2D" parent="Vision"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="DetectionShape" type="CollisionShape2D" parent="Vision/Detection"]
+visible = false
+shape = SubResource("CircleShape2D_ukipd")
+
+[connection signal="body_entered" from="Vision/Detection" to="Vision" method="_on_body_entered"]
+[connection signal="body_exited" from="Vision/Detection" to="Vision" method="_on_detection_body_exited"]

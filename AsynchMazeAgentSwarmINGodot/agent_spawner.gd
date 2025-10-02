@@ -1,0 +1,62 @@
+extends Node2D
+
+@export var scene_to_spawn: PackedScene                 # The scene to instance
+@export var target_count: int = 10                     # Desired total instances
+@export var container: NodePath                         # Optional parent for instances
+@export var maintain_count: bool = false                 # Keep topping up when some are freed
+@export var spawn_radius: float = 0.0                   # Randomize around this node within radius
+@export var randomize_rotation: bool = false            # Random starting rotation for Node2D children
+
+var _group_name: String
+var _parent: Node
+
+func _enter_tree() -> void:
+	_group_name = "spawner_" + str(get_instance_id())
+
+func _ready() -> void:
+	if container.is_empty():
+		_parent = self 
+	else: 
+		_parent = get_node(container)
+	top_up()
+
+func top_up() -> void:
+	if scene_to_spawn == null:
+		push_error("%s: scene_to_spawn is not set." % name)
+		return
+
+	var existing := get_tree().get_nodes_in_group(_group_name).size()
+	var need = max(0, target_count - existing)
+	if need <= 0:
+		return
+
+	for i in range(need):
+		var inst = scene_to_spawn.instantiate()
+
+		# Optional position/rotation for 2D
+		if inst is Node2D:
+			var pos := global_position
+			if spawn_radius > 0.0:
+				var a := randf() * TAU
+				var r := randf() * spawn_radius
+				pos += Vector2(cos(a), sin(a)) * r
+			(inst as Node2D).global_position = pos
+			if randomize_rotation:
+				(inst as Node2D).rotation = randf() * TAU
+
+		_parent.add_child(inst)
+		inst.add_to_group(_group_name)
+
+		if maintain_count:
+			# When a spawned node leaves the tree, top up again
+			inst.tree_exited.connect(_on_spawned_tree_exited, CONNECT_DEFERRED)
+
+func _on_spawned_tree_exited() -> void:
+	# Defer to let the tree update before recounting
+	call_deferred("top_up")
+
+# Optional utility: clear all instances from this spawner
+func clear_all() -> void:
+	for n in get_tree().get_nodes_in_group(_group_name):
+		if is_instance_valid(n):
+			n.queue_free()

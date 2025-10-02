@@ -1,0 +1,185 @@
+[gd_scene load_steps=4 format=3 uid="uid://dd6dqpje7st8a"]
+
+[ext_resource type="PackedScene" uid="uid://cew5sc3l33wxr" path="res://swarm_agent.tscn" id="1_q06l5"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6qe4r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q06l5"]
+
+[node name="Sim" type="Node2D"]
+
+[node name="Maze" type="Node2D" parent="."]
+
+[node name="WorldBounds" type="Node2D" parent="Maze"]
+
+[node name="BoundaryLeft" type="StaticBody2D" parent="Maze/WorldBounds"]
+position = Vector2(0, 151)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Maze/WorldBounds/BoundaryLeft"]
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_6qe4r")
+
+[node name="BoundaryRight" type="StaticBody2D" parent="Maze/WorldBounds"]
+position = Vector2(574, 167)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Maze/WorldBounds/BoundaryRight"]
+rotation = -1.5707964
+shape = SubResource("WorldBoundaryShape2D_6qe4r")
+
+[node name="BoundaryDown" type="StaticBody2D" parent="Maze/WorldBounds"]
+position = Vector2(289, 328)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Maze/WorldBounds/BoundaryDown"]
+shape = SubResource("WorldBoundaryShape2D_6qe4r")
+
+[node name="BoundaryUp" type="StaticBody2D" parent="Maze/WorldBounds"]
+position = Vector2(288, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Maze/WorldBounds/BoundaryUp"]
+rotation = 3.1415927
+shape = SubResource("WorldBoundaryShape2D_6qe4r")
+
+[node name="Obstacles" type="Node2D" parent="Maze"]
+
+[node name="Wall1" type="StaticBody2D" parent="Maze/Obstacles"]
+position = Vector2(128, 237.00002)
+scale = Vector2(1, 15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Maze/Obstacles/Wall1"]
+rotation = 3.1415927
+shape = SubResource("RectangleShape2D_q06l5")
+
+[node name="Polygon2D" type="Polygon2D" parent="Maze/Obstacles/Wall1"]
+polygon = PackedVector2Array(-10, -10, -10, 10, 10, 10, 10, -10)
+
+[node name="Wall2" type="StaticBody2D" parent="Maze/Obstacles"]
+position = Vector2(289, 80.000015)
+scale = Vector2(1, 15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Maze/Obstacles/Wall2"]
+rotation = 3.1415927
+shape = SubResource("RectangleShape2D_q06l5")
+
+[node name="Polygon2D" type="Polygon2D" parent="Maze/Obstacles/Wall2"]
+polygon = PackedVector2Array(-10, -10, -10, 10, 10, 10, 10, -10)
+
+[node name="Wall3" type="StaticBody2D" parent="Maze/Obstacles"]
+position = Vector2(421, 81)
+scale = Vector2(1, 15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Maze/Obstacles/Wall3"]
+rotation = 3.1415927
+shape = SubResource("RectangleShape2D_q06l5")
+
+[node name="Polygon2D" type="Polygon2D" parent="Maze/Obstacles/Wall3"]
+polygon = PackedVector2Array(-10, -10, -10, 10, 10, 10, 10, -10)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(287, 165)
+zoom = Vector2(2, 2)
+
+[node name="StartingBeacon" parent="." instance=ExtResource("1_q06l5")]
+position = Vector2(354, 43)
+rotation = -2.678275
+scale = Vector2(0.9999935, 0.9999935)
+velocity = Vector2(134.07463, -268.37067)
+starting_state = 1
+
+[node name="Goal" parent="." instance=ExtResource("1_q06l5")]
+position = Vector2(53.00003, 292)
+rotation = 1.7411227
+scale = Vector2(0.9999979, 0.9999979)
+velocity = Vector2(-295.65823, -50.8511)
+starting_state = 2
+
+[node name="Node" type="Node" parent="."]
+
+[node name="SwarmAgent1" parent="Node" instance=ExtResource("1_q06l5")]
+position = Vector2(341.00003, 75)
+rotation = 1.7411227
+scale = Vector2(0.9999979, 0.9999979)
+velocity = Vector2(-295.65823, -50.8511)
+VISION_RADIUS = 250.0
+explore_separation_wt = 0.1
+noise_wt = 0.02
+
+[node name="SwarmAgent2" parent="Node" instance=ExtResource("1_q06l5")]
+position = Vector2(341.00003, 75)
+rotation = 1.7411227
+scale = Vector2(0.9999979, 0.9999979)
+velocity = Vector2(-295.65823, -50.8511)
+VISION_RADIUS = 250.0
+explore_separation_wt = 0.1
+noise_wt = 0.02
+
+[node name="SwarmAgent3" parent="Node" instance=ExtResource("1_q06l5")]
+position = Vector2(341.00003, 75)
+rotation = 1.7411227
+scale = Vector2(0.9999979, 0.9999979)
+velocity = Vector2(-295.65823, -50.8511)
+VISION_RADIUS = 250.0
+explore_separation_wt = 0.1
+noise_wt = 0.02
+
+[node name="SwarmAgent4" parent="Node" instance=ExtResource("1_q06l5")]
+position = Vector2(341.00003, 75)
+rotation = 1.7411227
+scale = Vector2(0.9999979, 0.9999979)
+velocity = Vector2(-295.65823, -50.8511)
+VISION_RADIUS = 250.0
+explore_separation_wt = 0.1
+noise_wt = 0.02
+
+[node name="SwarmAgent5" parent="Node" instance=ExtResource("1_q06l5")]
+position = Vector2(341.00003, 75)
+rotation = 1.7411227
+scale = Vector2(0.9999979, 0.9999979)
+velocity = Vector2(-295.65823, -50.8511)
+VISION_RADIUS = 250.0
+explore_separation_wt = 0.1
+noise_wt = 0.02
+
+[node name="SwarmAgent6" parent="Node" instance=ExtResource("1_q06l5")]
+position = Vector2(341.00003, 75)
+rotation = 1.7411227
+scale = Vector2(0.9999979, 0.9999979)
+velocity = Vector2(-295.65823, -50.8511)
+VISION_RADIUS = 250.0
+explore_separation_wt = 0.1
+noise_wt = 0.02
+
+[node name="SwarmAgent7" parent="Node" instance=ExtResource("1_q06l5")]
+position = Vector2(341.00003, 75)
+rotation = 1.7411227
+scale = Vector2(0.9999979, 0.9999979)
+velocity = Vector2(-295.65823, -50.8511)
+VISION_RADIUS = 250.0
+explore_separation_wt = 0.1
+noise_wt = 0.02
+
+[node name="SwarmAgent8" parent="Node" instance=ExtResource("1_q06l5")]
+position = Vector2(341.00003, 75)
+rotation = 1.7411227
+scale = Vector2(0.9999979, 0.9999979)
+velocity = Vector2(-295.65823, -50.8511)
+VISION_RADIUS = 250.0
+explore_separation_wt = 0.1
+noise_wt = 0.02
+
+[node name="SwarmAgent9" parent="Node" instance=ExtResource("1_q06l5")]
+position = Vector2(341.00003, 75)
+rotation = 1.7411227
+scale = Vector2(0.9999979, 0.9999979)
+velocity = Vector2(-295.65823, -50.8511)
+VISION_RADIUS = 250.0
+explore_separation_wt = 0.1
+noise_wt = 0.02
+
+[node name="SwarmAgent10" parent="Node" instance=ExtResource("1_q06l5")]
+position = Vector2(341.00003, 75)
+rotation = 1.7411227
+scale = Vector2(0.9999979, 0.9999979)
+velocity = Vector2(-295.65823, -50.8511)
+VISION_RADIUS = 250.0
+explore_separation_wt = 0.1
+noise_wt = 0.02
