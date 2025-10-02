@@ -181,7 +181,7 @@ func _physics_process(delta: float) -> void:
 					heading += agent.direction_vector * 10 / self.position.distance_to(agent.position)
 					cohesion += agent.position / len(visible_goals)
 			if goal_position:
-				direction_vector = direction_vector + self.position.direction_to(goal_position)
+				direction_vector = direction_vector * 0.65 + 0.35 * self.position.direction_to(goal_position)
 				if self.position.distance_to(goal_position) < 5:
 					queue_free()
 				
@@ -189,12 +189,12 @@ func _physics_process(delta: float) -> void:
 				direction_vector = (direction_vector +
 					heading * alignment_wt + 
 					self.position.direction_to(cohesion) * cohesion_wt).normalized()
-				if ray_left.is_colliding():
-					direction_angle += wall_avoid_wt * PI
-				if ray_right.is_colliding():
-					direction_angle -= wall_avoid_wt * PI
+			if ray_left.is_colliding():
+				direction_angle += wall_avoid_wt * PI
+			if ray_right.is_colliding():
+				direction_angle -= wall_avoid_wt * PI
 
-				direction_angle = direction_angle + randf_range(-3, 3) * noise_wt
+			direction_angle = direction_angle + randf_range(-3, 3) * noise_wt
 			move(deltat, DirectionMode.FORWARD)
 			
 		State.SUBGOAL:
