@@ -19,7 +19,7 @@ cohesion_wt = 0.058
 alignment_wt = 1.24
 explore_separation_wt = 0.147
 noise_wt = 0.055
-diffusion_wt = 0.354
+diffusion_wt = 0.416
 wall_avoid_wt = 0.088
 
 [node name="Sprite" type="Polygon2D" parent="."]

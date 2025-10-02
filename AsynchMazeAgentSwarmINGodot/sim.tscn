@@ -178,6 +178,6 @@ position = Vector2(210, 68)
 [node name="AgentSpawner" parent="." instance=ExtResource("4_peo6w")]
 position = Vector2(355, 29)
 scene_to_spawn = ExtResource("1_q06l5")
-target_count = 50
+target_count = 60
 container = NodePath("../Node")
 spawn_radius = 0.15

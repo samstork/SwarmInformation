@@ -4,6 +4,9 @@ extends CharacterBody2D
 enum DirectionMode {FORWARD = 1, REVERSE = -1}
 enum State {EXPLORING, BEACON, SUBGOAL, SUBGOAL_F, BACKTRACK_B, BACKTRACK_G, EXPLOITING}
 const MIN_DISTANCE = 0.0001
+const deltat: float = 1.0/120
+
+
 
 var _vision_radius: float = 150.0
 @export var VISION_RADIUS: float:
@@ -139,7 +142,7 @@ func _physics_process(delta: float) -> void:
 				if ray_right.is_colliding():
 					direction_angle -= wall_avoid_wt * PI
 				direction_angle += (noise_wt * randf_range(-3, 3))
-				move(delta, DirectionMode.FORWARD)
+				move(deltat, DirectionMode.FORWARD)
 
 		State.BACKTRACK_B:
 			if visible_goals:
@@ -151,7 +154,7 @@ func _physics_process(delta: float) -> void:
 			elif len(visible_beacons) > 1:
 				current_state = State.EXPLORING
 			else:
-				move(delta, DirectionMode.REVERSE)
+				move(deltat, DirectionMode.REVERSE)
 
 		State.BACKTRACK_G:
 			if len(visible_goals) == 0:
@@ -160,7 +163,7 @@ func _physics_process(delta: float) -> void:
 			elif len(visible_goals) > 1:
 				current_state = State.EXPLOITING
 			else:
-				move(delta, DirectionMode.REVERSE)
+				move(deltat, DirectionMode.REVERSE)
 	
 		State.BEACON:
 			if len(visible_goals):
@@ -192,7 +195,7 @@ func _physics_process(delta: float) -> void:
 					direction_angle -= wall_avoid_wt * PI
 
 				direction_angle = direction_angle + randf_range(-3, 3) * noise_wt
-			move(delta, DirectionMode.FORWARD)
+			move(deltat, DirectionMode.FORWARD)
 			
 		State.SUBGOAL:
 			if visible_exploiters:
