@@ -11,6 +11,7 @@
 
 [node name="Sim" type="Node2D"]
 script = ExtResource("1_5txf0")
+TPS = 40
 
 [node name="Maze" type="Node2D" parent="."]
 
@@ -48,6 +49,7 @@ shape = SubResource("WorldBoundaryShape2D_6qe4r")
 [node name="Wall1" type="StaticBody2D" parent="Maze/Obstacles"]
 position = Vector2(167, 349.00003)
 scale = Vector2(1, 15)
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Maze/Obstacles/Wall1"]
 rotation = 3.1415927
@@ -59,6 +61,7 @@ polygon = PackedVector2Array(-10, -10, -10, 10, 10, 10, 10, -6.3586693, 10, -10)
 [node name="Wall7" type="StaticBody2D" parent="Maze/Obstacles"]
 position = Vector2(79, 211)
 scale = Vector2(1, 4.7999997)
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Maze/Obstacles/Wall7"]
 rotation = 3.1415927
@@ -67,9 +70,22 @@ shape = SubResource("RectangleShape2D_q06l5")
 [node name="Polygon2D" type="Polygon2D" parent="Maze/Obstacles/Wall7"]
 polygon = PackedVector2Array(-10, -10, -10, 10, 10, 10, 10, -6.3586693, 10, -10)
 
+[node name="Wall14" type="StaticBody2D" parent="Maze/Obstacles"]
+position = Vector2(525, 185)
+scale = Vector2(1, 4.7999997)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Maze/Obstacles/Wall14"]
+rotation = 3.1415927
+shape = SubResource("RectangleShape2D_q06l5")
+
+[node name="Polygon2D" type="Polygon2D" parent="Maze/Obstacles/Wall14"]
+polygon = PackedVector2Array(-10, -10, -10, 10, 10, 10, 10, -6.3586693, 10, -10)
+
 [node name="Wall10" type="StaticBody2D" parent="Maze/Obstacles"]
-position = Vector2(154, 77)
+position = Vector2(121, 77)
 scale = Vector2(1, 2.6799998)
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Maze/Obstacles/Wall10"]
 rotation = 3.1415927
@@ -78,9 +94,109 @@ shape = SubResource("RectangleShape2D_q06l5")
 [node name="Polygon2D" type="Polygon2D" parent="Maze/Obstacles/Wall10"]
 polygon = PackedVector2Array(-10, -10, -10, 10, 10, 10, 10, -6.3586693, 10, -10)
 
+[node name="Wall11" type="StaticBody2D" parent="Maze/Obstacles"]
+position = Vector2(211, 32)
+scale = Vector2(1, 2.6799998)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Maze/Obstacles/Wall11"]
+rotation = 3.1415927
+shape = SubResource("RectangleShape2D_q06l5")
+
+[node name="Polygon2D" type="Polygon2D" parent="Maze/Obstacles/Wall11"]
+polygon = PackedVector2Array(-10, -10, -10, 10, 10, 10, 10, -6.3586693, 10, -10)
+
+[node name="Wall24" type="StaticBody2D" parent="Maze/Obstacles"]
+position = Vector2(349, 173)
+scale = Vector2(1, 2.6799998)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Maze/Obstacles/Wall24"]
+rotation = 3.1415927
+shape = SubResource("RectangleShape2D_q06l5")
+
+[node name="Polygon2D" type="Polygon2D" parent="Maze/Obstacles/Wall24"]
+polygon = PackedVector2Array(-10, -10, -10, 10, 10, 10, 10, -6.3586693, 10, -10)
+
+[node name="Wall25" type="StaticBody2D" parent="Maze/Obstacles"]
+position = Vector2(209, 140)
+scale = Vector2(1, 2.6799998)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Maze/Obstacles/Wall25"]
+rotation = 3.1415927
+shape = SubResource("RectangleShape2D_q06l5")
+
+[node name="Polygon2D" type="Polygon2D" parent="Maze/Obstacles/Wall25"]
+polygon = PackedVector2Array(-10, -10, -10, 10, 10, 10, 10, -6.3586693, 10, -10)
+
+[node name="Wall12" type="StaticBody2D" parent="Maze/Obstacles"]
+position = Vector2(37, 20.999998)
+scale = Vector2(1, 2.6799998)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Maze/Obstacles/Wall12"]
+rotation = 3.1415927
+shape = SubResource("RectangleShape2D_q06l5")
+
+[node name="Polygon2D" type="Polygon2D" parent="Maze/Obstacles/Wall12"]
+polygon = PackedVector2Array(-10, -10, -10, 10, 10, 10, 10, -6.3586693, 10, -10)
+
+[node name="Wall13" type="StaticBody2D" parent="Maze/Obstacles"]
+position = Vector2(348, 71)
+scale = Vector2(1, 2.6799998)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Maze/Obstacles/Wall13"]
+rotation = 3.1415927
+shape = SubResource("RectangleShape2D_q06l5")
+
+[node name="Polygon2D" type="Polygon2D" parent="Maze/Obstacles/Wall13"]
+polygon = PackedVector2Array(-10, -10, -10, 10, 10, 10, 10, -6.3586693, 10, -10)
+
+[node name="Wall18" type="StaticBody2D" parent="Maze/Obstacles"]
+position = Vector2(376, 84)
+rotation = 1.5707964
+scale = Vector2(1, 2.6799998)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Maze/Obstacles/Wall18"]
+rotation = 3.1415927
+shape = SubResource("RectangleShape2D_q06l5")
+
+[node name="Polygon2D" type="Polygon2D" parent="Maze/Obstacles/Wall18"]
+polygon = PackedVector2Array(-10, -10, -10, 10, 10, 10, 10, -6.3586693, 10, -10)
+
+[node name="Wall20" type="StaticBody2D" parent="Maze/Obstacles"]
+position = Vector2(357, 260)
+rotation = 1.5707964
+scale = Vector2(1, 2.6799998)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Maze/Obstacles/Wall20"]
+rotation = 3.1415927
+shape = SubResource("RectangleShape2D_q06l5")
+
+[node name="Polygon2D" type="Polygon2D" parent="Maze/Obstacles/Wall20"]
+polygon = PackedVector2Array(-10, -10, -10, 10, 10, 10, 10, -6.3586693, 10, -10)
+
+[node name="Wall22" type="StaticBody2D" parent="Maze/Obstacles"]
+position = Vector2(77, 261)
+rotation = 1.5707964
+scale = Vector2(1, 2.6799998)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Maze/Obstacles/Wall22"]
+rotation = 3.1415927
+shape = SubResource("RectangleShape2D_q06l5")
+
+[node name="Polygon2D" type="Polygon2D" parent="Maze/Obstacles/Wall22"]
+polygon = PackedVector2Array(-10, -10, -10, 10, 10, 10, 10, -6.3586693, 10, -10)
+
 [node name="Wall2" type="StaticBody2D" parent="Maze/Obstacles"]
-position = Vector2(265, 113.00001)
-scale = Vector2(1, 15)
+position = Vector2(266, 149)
+scale = Vector2(1, 11.200001)
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Maze/Obstacles/Wall2"]
 rotation = 3.1415927
@@ -92,6 +208,7 @@ polygon = PackedVector2Array(-10, -10, -10, 10, 10, 10, 10, -10)
 [node name="Wall9" type="StaticBody2D" parent="Maze/Obstacles"]
 position = Vector2(361, 399)
 scale = Vector2(1, 15)
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Maze/Obstacles/Wall9"]
 rotation = 3.1415927
@@ -103,6 +220,7 @@ polygon = PackedVector2Array(-10, -10, -10, 10, 10, 10, 10, -10)
 [node name="Wall3" type="StaticBody2D" parent="Maze/Obstacles"]
 position = Vector2(456, 110)
 scale = Vector2(1, 15)
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Maze/Obstacles/Wall3"]
 rotation = 3.1415927
@@ -115,6 +233,7 @@ polygon = PackedVector2Array(-10, -10, -10, 10, 10, 10, 10, -10)
 position = Vector2(214.00002, 107)
 rotation = -1.5708284
 scale = Vector2(1, 14.384285)
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Maze/Obstacles/Wall4"]
 rotation = 3.1415927
@@ -127,6 +246,7 @@ polygon = PackedVector2Array(-10, -10, -10, 10, 10, 10, 10, -10)
 position = Vector2(445, 189)
 rotation = -1.5708284
 scale = Vector2(1, 8.944289)
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Maze/Obstacles/Wall5"]
 rotation = 3.1415927
@@ -136,9 +256,10 @@ shape = SubResource("RectangleShape2D_q06l5")
 polygon = PackedVector2Array(-10, -10, -10, 10, 10, 10, 10, -10)
 
 [node name="Wall8" type="StaticBody2D" parent="Maze/Obstacles"]
-position = Vector2(601, 86)
+position = Vector2(588.99994, 72)
 rotation = -1.5708284
 scale = Vector2(1, 8.944289)
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Maze/Obstacles/Wall8"]
 rotation = 3.1415927
@@ -151,6 +272,7 @@ polygon = PackedVector2Array(-10, -10, -10, 10, 10, 10, 10, -10)
 position = Vector2(9, 163)
 rotation = -1.5708284
 scale = Vector2(1, 8.944289)
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Maze/Obstacles/Wall6"]
 rotation = 3.1415927
@@ -166,17 +288,17 @@ zoom = Vector2(2, 2)
 [node name="Origin" type="Node2D" parent="."]
 
 [node name="StartingBeacon" parent="Origin" instance=ExtResource("1_q06l5")]
-position = Vector2(89.00003, 32.000008)
+position = Vector2(105.00004, 304)
 rotation = -2.678275
 scale = Vector2(0.9999935, 0.9999935)
 velocity = Vector2(134.07463, -268.37067)
 starting_state = 1
 
 [node name="GoalAgent" parent="." instance=ExtResource("3_peo6w")]
-position = Vector2(528, 29.000015)
+position = Vector2(397, 32)
 
 [node name="AgentSpawner" parent="." instance=ExtResource("4_peo6w")]
-position = Vector2(89, 31)
+position = Vector2(105, 303)
 scene_to_spawn = ExtResource("1_q06l5")
-target_count = 40
+target_count = 100
 container = NodePath("../Origin")

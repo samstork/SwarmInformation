@@ -4,7 +4,8 @@ extends Node2D
 @export var target_count: int = 50                     # Desired total instances
 @export var container: NodePath                         # Optional parent for instances
 @export var maintain_count: bool = false                 # Keep topping up when some are freed
-@export var randomize_rotation: bool = false            # Random starting rotation for Node2D children
+@export var randomize_rotation: bool = false 
+@export var spawn_radius: float = 7.0           # Random starting rotation for Node2D children
 
 var _group_name: String
 var _parent: Node
@@ -36,7 +37,10 @@ func top_up() -> void:
 		if inst is Node2D:
 			var pos
 			pos = self.global_position
-			print(self.position, self.global_position)
+			if spawn_radius > 0.0:
+				var a = randf() * TAU
+				var r = randf() * spawn_radius
+				pos += Vector2(cos(a), sin(a)) * r
 			(inst as Node2D).position = pos
 			if randomize_rotation:
 				(inst as Node2D).rotation = randf() * TAU

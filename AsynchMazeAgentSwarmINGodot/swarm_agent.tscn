@@ -12,15 +12,17 @@ radius = 139.01
 [node name="SwarmAgent" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_wxdti")
-VISION_RADIUS = 150.0
+VISION_RADIUS = 80.0
 SPEED = 200
-density_distance = 32.885000000000005
-cohesion_wt = 0.058
+density_distance = 23.872
+cohesion_wt = 0.077
 alignment_wt = 1.24
 explore_separation_wt = 0.147
 noise_wt = 0.055
-diffusion_wt = 0.416
-wall_avoid_wt = 0.088
+diffusion_wt = 0.1
+wall_avoid_wt_explore = 0.063
+wall_avoid_wt_exploit = 0.093
+sgf_timeout = 25
 
 [node name="Sprite" type="Polygon2D" parent="."]
 rotation = 1.5707964
@@ -46,7 +48,7 @@ visible = false
 shape = SubResource("CircleShape2D_ukipd")
 
 [node name="RayLeft" type="RayCast2D" parent="Vision"]
-target_position = Vector2(-16.000002, -22)
+target_position = Vector2(-14.000001, -23)
 
 [node name="RayRight" type="RayCast2D" parent="Vision"]
 target_position = Vector2(14.999999, -22)
