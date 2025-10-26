@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bywoakyjjcv64"]
+
+[ext_resource type="Script" uid="uid://bi37urw04ikto" path="res://sim_control.gd" id="1_gi0ye"]
+[ext_resource type="PackedScene" uid="uid://5ytgr8rc0xeh" path="res://top_menu.tscn" id="1_ix1r6"]
+
+[node name="Program" type="Node2D"]
+script = ExtResource("1_gi0ye")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TopMenu" parent="CanvasLayer" instance=ExtResource("1_ix1r6")]
+metadata/_edit_use_anchors_ = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(287, 165)
+zoom = Vector2(1.75, 1.75)
+
+[connection signal="t_1_changed" from="." to="CanvasLayer/TopMenu" method="_on_program_t_1_changed"]
+[connection signal="t_2_changed" from="." to="CanvasLayer/TopMenu" method="_on_program_t_2_changed"]
+[connection signal="timestep_changed" from="." to="CanvasLayer/TopMenu" method="_on_program_timestep_changed"]
+[connection signal="reset_sim_button" from="CanvasLayer/TopMenu" to="." method="_on_top_menu_reset_sim_button"]

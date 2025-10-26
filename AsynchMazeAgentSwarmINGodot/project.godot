@@ -11,16 +11,18 @@ config_version=5
 [application]
 
 config/name="AMASinG"
-run/main_scene="uid://dd6dqpje7st8a"
+run/main_scene="uid://bywoakyjjcv64"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-SimControl="*res://sim_control.gd"
+Globals="*res://global.gd"
 
 [display]
 
+window/size/viewport_width=1080
+window/size/viewport_height=720
 window/vsync/vsync_mode=0
 
 [physics]

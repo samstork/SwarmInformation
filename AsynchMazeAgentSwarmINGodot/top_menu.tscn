@@ -1,0 +1,196 @@
+[gd_scene load_steps=3 format=3 uid="uid://5ytgr8rc0xeh"]
+
+[ext_resource type="Theme" uid="uid://cumbhkd23rws2" path="res://top_menu_theme.tres" id="1_4wdnd"]
+[ext_resource type="Script" uid="uid://btpigu52qv6qq" path="res://top_menu.gd" id="1_nqjty"]
+
+[node name="TopMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nqjty")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 1084.0
+offset_bottom = 93.0
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("1_4wdnd")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/PanelContainer"]
+layout_mode = 2
+theme = ExtResource("1_4wdnd")
+theme_override_constants/separation = 20
+
+[node name="AlgorithmToggles" type="VBoxContainer" parent="HBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="DiffusionButton" type="CheckButton" parent="HBoxContainer/PanelContainer/HBoxContainer/AlgorithmToggles"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+button_pressed = true
+text = "Diffuse"
+
+[node name="BeaconButton" type="CheckButton" parent="HBoxContainer/PanelContainer/HBoxContainer/AlgorithmToggles"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+button_pressed = true
+text = "Beacons"
+
+[node name="SubgoalButton" type="CheckButton" parent="HBoxContainer/PanelContainer/HBoxContainer/AlgorithmToggles"]
+layout_mode = 2
+button_pressed = true
+text = "Subgoals"
+
+[node name="TargetTimesteps" type="GridContainer" parent="HBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+columns = 2
+
+[node name="MaxTSLabel" type="Label" parent="HBoxContainer/PanelContainer/HBoxContainer/TargetTimesteps"]
+layout_mode = 2
+text = "Max Timesteps"
+
+[node name="MaxTSBox" type="SpinBox" parent="HBoxContainer/PanelContainer/HBoxContainer/TargetTimesteps"]
+layout_mode = 2
+min_value = 2000.0
+max_value = 5000.0
+value = 2000.0
+rounded = true
+allow_greater = true
+alignment = 2
+custom_arrow_step = 1.0
+
+[node name="GracePeriodLabel" type="Label" parent="HBoxContainer/PanelContainer/HBoxContainer/TargetTimesteps"]
+layout_mode = 2
+text = "Grace Period"
+
+[node name="GracePeriodBox" type="SpinBox" parent="HBoxContainer/PanelContainer/HBoxContainer/TargetTimesteps"]
+layout_mode = 2
+max_value = 500.0
+value = 250.0
+rounded = true
+allow_greater = true
+alignment = 2
+custom_arrow_step = 1.0
+
+[node name="TargetAgents" type="GridContainer" parent="HBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+columns = 2
+
+[node name="TargetLabel" type="Label" parent="HBoxContainer/PanelContainer/HBoxContainer/TargetAgents"]
+layout_mode = 2
+text = "Target %"
+
+[node name="TargetBox" type="SpinBox" parent="HBoxContainer/PanelContainer/HBoxContainer/TargetAgents"]
+layout_mode = 2
+min_value = 10.0
+step = 0.1
+value = 90.0
+alignment = 2
+suffix = "%"
+custom_arrow_step = 1.0
+
+[node name="AgentLabel" type="Label" parent="HBoxContainer/PanelContainer/HBoxContainer/TargetAgents"]
+layout_mode = 2
+text = "Agents"
+
+[node name="AgentBox" type="SpinBox" parent="HBoxContainer/PanelContainer/HBoxContainer/TargetAgents"]
+layout_mode = 2
+min_value = 10.0
+max_value = 150.0
+value = 50.0
+alignment = 2
+custom_arrow_step = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="PauseButton" type="Button" parent="HBoxContainer/PanelContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+toggle_mode = true
+text = "Pause"
+
+[node name="StepButton" type="Button" parent="HBoxContainer/PanelContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Step"
+
+[node name="ResetButton" type="Button" parent="HBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_4wdnd")
+text = "Reset"
+
+[node name="SimSpeedControls" type="VBoxContainer" parent="HBoxContainer/PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="SimspeedLabel" type="Label" parent="HBoxContainer/PanelContainer/HBoxContainer/SimSpeedControls"]
+layout_mode = 2
+text = "Sim Speed"
+
+[node name="SimSpeedSlider" type="HSlider" parent="HBoxContainer/PanelContainer/HBoxContainer/SimSpeedControls"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 4
+min_value = 1.0
+max_value = 240.0
+value = 60.0
+
+[node name="GridContainer3" type="GridContainer" parent="HBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+columns = 2
+
+[node name="TimestepLabel" type="Label" parent="HBoxContainer/PanelContainer/HBoxContainer/GridContainer3"]
+layout_mode = 2
+text = "T:"
+
+[node name="TimestepText" type="Label" parent="HBoxContainer/PanelContainer/HBoxContainer/GridContainer3"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="GoalSightedLabel" type="Label" parent="HBoxContainer/PanelContainer/HBoxContainer/GridContainer3"]
+layout_mode = 2
+text = "T_1:"
+
+[node name="GoalSightedText" type="Label" parent="HBoxContainer/PanelContainer/HBoxContainer/GridContainer3"]
+layout_mode = 2
+text = "N/A"
+horizontal_alignment = 2
+
+[node name="SuccessLabel" type="Label" parent="HBoxContainer/PanelContainer/HBoxContainer/GridContainer3"]
+layout_mode = 2
+text = "T_2:"
+
+[node name="SuccessText" type="Label" parent="HBoxContainer/PanelContainer/HBoxContainer/GridContainer3"]
+layout_mode = 2
+text = "N/A"
+horizontal_alignment = 2
+
+[connection signal="toggled" from="HBoxContainer/PanelContainer/HBoxContainer/AlgorithmToggles/DiffusionButton" to="." method="_on_diffusion_button_toggled"]
+[connection signal="toggled" from="HBoxContainer/PanelContainer/HBoxContainer/AlgorithmToggles/BeaconButton" to="." method="_on_beacon_button_toggled"]
+[connection signal="toggled" from="HBoxContainer/PanelContainer/HBoxContainer/AlgorithmToggles/SubgoalButton" to="." method="_on_subgoal_button_toggled"]
+[connection signal="value_changed" from="HBoxContainer/PanelContainer/HBoxContainer/TargetTimesteps/MaxTSBox" to="." method="_on_max_ts_box_value_changed"]
+[connection signal="value_changed" from="HBoxContainer/PanelContainer/HBoxContainer/TargetAgents/TargetBox" to="." method="_on_target_box_value_changed"]
+[connection signal="value_changed" from="HBoxContainer/PanelContainer/HBoxContainer/TargetAgents/AgentBox" to="." method="_on_agent_box_value_changed"]
+[connection signal="toggled" from="HBoxContainer/PanelContainer/HBoxContainer/VBoxContainer/PauseButton" to="." method="_on_pause_button_toggled"]
+[connection signal="pressed" from="HBoxContainer/PanelContainer/HBoxContainer/VBoxContainer/StepButton" to="." method="_on_step_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/PanelContainer/HBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/PanelContainer/HBoxContainer/ResetButton" to="." method="_on_button_pressed"]
+[connection signal="value_changed" from="HBoxContainer/PanelContainer/HBoxContainer/SimSpeedControls/SimSpeedSlider" to="." method="_on_sim_speed_slider_value_changed"]
