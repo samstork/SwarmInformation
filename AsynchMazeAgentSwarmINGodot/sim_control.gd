@@ -59,7 +59,8 @@ func _physics_process(delta: float) -> void:
 	
 func end_sim() -> void:
 	var stragglers = number_of_agents - no_goal_reached
-	print(diffusing, beaconing, subgoaling, number_of_agents, t_1, t_2, timesteps, stragglers)
+	print(diffusing, ", ", beaconing, ", ", subgoaling, ", ", number_of_agents, 
+		", ", t_1, ", ", t_2, ", ", timesteps, ", ", stragglers)
 
 
 func load_sim() -> void:
